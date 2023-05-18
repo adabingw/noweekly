@@ -1,0 +1,279 @@
+{'object': 'list', 
+    'results': [
+        {
+            'object': 'page', 
+            'id': 'b7ff13e4-3567-476c-a4a0-23adc3e28257', 
+            'created_time': '2023-05-10T18:50:00.000Z', 
+            'last_edited_time': '2023-05-14T12:57:00.000Z', 
+            'created_by': {
+                'object': 'user', 
+                'id': '6f1312c1-c824-4c68-b90c-67a838de6543'
+            }, 
+            'last_edited_by': {
+                'object': 'user', 
+                'id': '6f1312c1-c824-4c68-b90c-67a838de6543'
+            }, 
+            'cover': None, 
+            'icon': None, 
+            'parent': {
+                'type': 'database_id', 
+                'database_id': '6588be4d-d7ee-4f28-9be4-d84a5b7845c1'
+            }, 
+            'archived': False, 
+            'properties': {
+                'done': {
+                    'id': '%3FLgy', 
+                    'type': 'checkbox', 
+                    'checkbox': False
+                }, 
+                'class': {
+                    'id': 'O%5E_C', 
+                    'type': 'multi_select', 
+                    'multi_select': [{
+                        'id': 'efba4c6e-8cae-49dc-9587-e60854a9220c', 
+                        'name': 'math239', 
+                        'color': 'orange'
+                }]}, 
+                'where': {
+                    'id': 'RS%60c', 
+                    'type': 'multi_select', 
+                    'multi_select': [{
+                        'id': '24df5098-fef8-4069-8aee-f042af1b2e15', 
+                        'name': 'crowdmark', 
+                        'color': 'gray'
+                }]}, 
+                'grade': {
+                    'id': '_Q%3Fn', 
+                    'type': 'number', 
+                    'number': None
+                }, 
+                'how much': {
+                    'id': 'asfq', 
+                    'type': 'rich_text', 
+                    'rich_text': [{
+                        'type': 'text', 
+                        'text': {
+                            'content': '2.85', 
+                            'link': None
+                        }, 
+                        'annotations': {
+                            'bold': False, 
+                            'italic': False, 
+                            'strikethrough': False, 
+                            'underline': False, 
+                            'code': False, 
+                            'color': 'default'
+                        }, 
+                        'plain_text': '2.85', 
+                        'href': None
+                }]}, 
+                'when': {
+                    'id': '%7DN%5EZ', 
+                    'type': 'date', 
+                    'date': {
+                        'start': '2023-05-18', 
+                        'end': None, 
+                        'time_zone': None
+                }}, 
+                'Name': {
+                    'id': 'title', 
+                    'type': 'title', 
+                    'title': [{
+                        'type': 'text', 
+                        'text': {
+                            'content': 'a1', 
+                            'link': None
+                        }, 
+                        'annotations': {
+                            'bold': False, 
+                            'italic': False, 
+                            'strikethrough': False, 
+                            'underline': False, 
+                            'code': False, 
+                            'color': 'default'
+                        }, 
+                        'plain_text': 'a1', 
+                        'href': None
+                    }]
+                }
+            }, 
+            'url': 'https://www.notion.so/a1-b7ff13e43567476ca4a023adc3e28257'
+        }, 
+        {
+            'object': 'page', 
+            'id': '250a7595-1576-4515-93bf-acc8149d693d', 
+            'created_time': '2023-05-08T12:31:00.000Z', 
+            'last_edited_time': '2023-05-16T01:50:00.000Z', 
+            'created_by': {
+                'object': 'user', 
+                'id': '6f1312c1-c824-4c68-b90c-67a838de6543'
+            }, 
+            'last_edited_by': {'object': 'user', 'id': '6f1312c1-c824-4c68-b90c-67a838de6543'}, 
+            'cover': None, 
+            'icon': None, 
+            'parent': {
+                'type': 'database_id', 
+                'database_id': '6588be4d-d7ee-4f28-9be4-d84a5b7845c1'
+            }, 
+            'archived': False, 
+            'properties': {
+                'done': {
+                    'id': '%3FLgy', 
+                    'type': 'checkbox', 
+                    'checkbox': True
+                }, 
+                'class': {
+                    'id': 'O%5E_C', 
+                    'type': 'multi_select', 
+                    'multi_select': [{
+                        'id': '5e5670e0-de95-41c8-8fc8-6dc95ab3f7ff', 
+                        'name': 'cs240', 
+                        'color': 'blue'
+                    }]}, 
+                'where': {
+                    'id': 'RS%60c', 
+                    'type': 'multi_select', 
+                    'multi_select': [{
+                        'id': '482204b5-d894-4093-ab38-05d138e4cf3f', 
+                        'name': 'markus', 
+                        'color': 'brown'
+                    }]}, 
+                'grade': {
+                    'id': '_Q%3Fn', 
+                    'type': 'number', 
+                    'number': None
+                }, 
+                'how much': {
+                    'id': 'asfq', 
+                    'type': 'rich_text', 
+                    'rich_text': [{
+                        'type': 'text', 
+                        'text': {
+                            'content': 'bonus 6 marks', 
+                            'link': None
+                        }, 
+                        'annotations': {
+                            'bold': False, 
+                            'italic': False, 
+                            'strikethrough': False, 
+                            'underline': False, 
+                            'code': False, 
+                            'color': 'default'
+                        }, 
+                        'plain_text': 'bonus 6 marks', 
+                        'href': None
+                    }]
+                }, 
+                'when': {
+                    'id': '%7DN%5EZ', 
+                    'type': 'date', 
+                    'date': {
+                        'start': '2023-05-17T17:00:00.000-04:00', 
+                        'end': None, 
+                        'time_zone': None
+                    }
+                }, 
+                'Name': {
+                    'id': 'title', 
+                    'type': 'title', 
+                    'title': [{
+                        'type': 'text', 
+                        'text': {
+                            'content': 'assignment 0', 
+                            'link': None
+                        }, 
+                        'annotations': {
+                            'bold': False, 
+                            'italic': False, 
+                            'strikethrough': False, 
+                            'underline': False, 
+                            'code': False, 
+                            'color': 'default'
+                        }, 
+                        'plain_text': 'assignment 0', 
+                        'href': None
+                    }]
+                }
+            }, 
+            'url': 'https://www.notion.so/assignment-0-250a75951576451593bfacc8149d693d'
+        }, 
+    ], 
+    'next_cursor': None, 
+    'has_more': False, 
+    'type': 'page', 
+    'page': {}
+}
+
+{
+    'object': 'database', 
+    'id': '6588be4d-d7ee-4f28-9be4-d84a5b7845c1', 
+    'cover': None, 
+    'icon': None, 
+    'created_time': '2023-05-08T12:31:00.000Z', 
+    'created_by': {'object': 'user', 'id': '6f1312c1-c824-4c68-b90c-67a838de6543'}, 
+    'last_edited_by': {'object': 'user', 'id': '6f1312c1-c824-4c68-b90c-67a838de6543'}, 
+    'last_edited_time': '2023-05-16T01:50:00.000Z', 
+    'title': [{
+        'type': 'text', 
+        'text': {
+            'content': 'spring 2023', 
+            'link': None
+        }, 
+        'annotations': {
+            'bold': False, 
+            'italic': False, 
+            'strikethrough': False, 
+            'underline': False, 
+            'code': False, 
+            'color': 'default'
+        }, 
+        'plain_text': 'spring 2023', 
+        'href': None
+    }], 
+    'description': [], 
+    'is_inline': True, 
+    'properties': {
+        'done': {
+            'id': '%3FLgy', 
+            'name': 'done', 
+            'type': 'checkbox', 
+            'checkbox': {}
+        }, 
+        'class': {
+            'id': 'O%5E_C', 
+            'name': 'class', 
+            'type': 'multi_select', 
+            'multi_select': {
+                'options': [
+                    {'id': '5e5670e0-de95-41c8-8fc8-6dc95ab3f7ff', 'name': 'cs240', 'color': 'blue'}, 
+                    {'id': '620769ae-0a25-4903-b431-48d0421fe399', 'name': 'cs348', 'color': 'pink'}, 
+                    {'id': 'efba4c6e-8cae-49dc-9587-e60854a9220c', 'name': 'math239', 'color': 'orange'}, 
+                    {'id': 'bd1102f4-c933-4fc2-97ec-c6d5d7c7c1ce', 'name': 'biol239', 'color': 'brown'}, 
+                    {'id': '676974e0-e535-49c5-a1fe-c124b8b87093', 'name': 'cs247', 'color': 'purple'}, 
+                    {'id': '8eae3db5-37a6-4afc-995e-afb92adbb49e', 'name': 'ece192', 'color': 'gray'}
+                ]
+            }
+        }, 
+        'where': {
+            'id': 'RS%60c', 
+            'name': 'where', 
+            'type': 'multi_select', 
+            'multi_select': {
+                'options': [
+                    {'id': '24df5098-fef8-4069-8aee-f042af1b2e15', 'name': 'crowdmark', 'color': 'gray'}, 
+                    {'id': '482204b5-d894-4093-ab38-05d138e4cf3f', 'name': 'markus', 'color': 'brown'}, 
+                    {'id': 'c107ce0c-e35c-4409-9bcb-eae86b7a9d7a', 'name': 'marmoset', 'color': 'yellow'}, 
+                    {'id': '228e1b6d-e5fd-4247-8d10-ac443fd6115a', 'name': 'in person', 'color': 'green'}, 
+                    {'id': 'dc629a65-859a-41b3-a8a9-8b58ce748b8e', 'name': 'learn', 'color': 'default'}
+                ]
+            }
+        }, 
+        'grade': {'id': '_Q%3Fn', 'name': 'grade', 'type': 'number', 'number': {'format': 'number'}}, 
+        'how much': {'id': 'asfq', 'name': 'how much', 'type': 'rich_text', 'rich_text': {}}, 
+        'when': {'id': '%7DN%5EZ', 'name': 'when', 'type': 'date', 'date': {}}, 
+        'Name': {'id': 'title', 'name': 'Name', 'type': 'title', 'title': {}}
+    }, 
+    'parent': {'type': 'page_id', 'page_id': '511a4126-7624-450f-9c41-8e7b9ee04708'}, 
+    'url': 'https://www.notion.so/6588be4dd7ee4f289be4d84a5b7845c1', 
+    'archived': False
+}
