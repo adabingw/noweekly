@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 /* eslint-env node */
@@ -6,17 +7,23 @@ import React from "react";
 import axios from 'axios';
 import Checkbox from '@mui/material/Checkbox';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 /**
- * TODO:
- *  generalize data types
- *  oncheckmark clicked
+ * structure of a data element:
+ *  {
+ *      page_id
+ *      properties
+ *  }
+ *  
  */
 
 
 function Thing(props) {
     const [data, setData] = useState([]);
     const [components, setComponents] = useState([])
+
+    const navigate = useNavigate()
 
     const getData = async() => {
         axios.get(`http://127.0.0.1:5000/database`)
@@ -29,10 +36,11 @@ function Thing(props) {
         });
     }
 
-    const getDatabase = async() => {
-        axios.get(`http://127.0.0.1:5000/properties`)
+    const onTaskFinish = (e) => {
+        axios.post(`http://127.0.0.1:5000/finish?page_id=${id}`)
         .then((res) => {
-            console.log(res.data)
+            console.log(res)
+            getData() 
         })
         .catch((err) => {
             console.log(err);
@@ -41,39 +49,53 @@ function Thing(props) {
 
     // this button is clicked when user wants to change which properties they want to include
     const onPropertiesChange = async() => {
-        // navigate to Select
+        navigate('/select')
     }
-
-
-    useEffect(() => {
-        let attributes = localStorage.getItem('noweekly')
-        if (attributes == undefined) {
-            console.log("no noweekly data stored")
-            // get database properties to choose
-        } else {
-            // get data
-            // 
-        }
-    }, [])
 
     useEffect(() => {
         let big_row = []
-        for (var d of data) {
-            console.log("what ", d)
-            let row = []
-            for (var i of d) {
-                console.log("yey ", i)
-                if (i[0] == 'checkbox') {
-                    row.push(<Checkbox 
-                        checked = {i[1]}
-                    />)
-                } else if (i[0] == 'date') {
-                    row.push(<div>{i[1]}</div>)
-                } else if (i[0] == 'name') {
-                    row.push(<div>{i[1]}</div>)
+        let attributes = JSON.parse(localStorage.getItem('noweekly'))
+        let activated = [] 
+        for (var attribute of attributes) {
+            if (attribute[3] == true) {
+                activated.append(attribute[2])
+            }
+        }
+
+        for (var row of data) {
+            let arr = []
+            for (var key of row[1]) {
+                if (!activated.includes(property['id'])) {
+                    continue
+                }
+
+                let property = row[key]
+                let type = property['type']
+                if (type == 'checkbox')  {
+                    arr.push(
+                        <Checkbox onClick={() => onTaskFinish()} id={row[0]} clicked={property['checkbox']}/>
+                    )
+                } else if (type == 'multiselect') {
+                    arr.push(
+                        <p>{property['multi_select']['name']}</p>
+                    )
+                } else if (type == 'date') {
+                    arr.push(
+                        <p>{property['date']['start']}</p>
+                    )
+                } else if (type == 'rich_text') {
+                    arr.push(
+                        <p>{property['title']['plain_text']}</p>
+                    )
+                } else if (type == 'number') {
+                    arr.push(
+                        <p>{property['number']}</p>
+                    )
                 }
             }
-            big_row.push(row)
+            
+            arr = ''.join(arr)
+            big_row.push(arr)
         }
         setComponents(big_row)        
     }, [data])
@@ -81,12 +103,13 @@ function Thing(props) {
 
     return (
         <div>
-            {/* {getData()} */}
             <div className="flexcol">
                 {components.map((index, value) => {
                     return <div className="flexrow"> {index} </div>
                 })}
             </div>
+            <p className="button" onClick={() => onPropertiesChange()}>change</p>
+            <p className="button" onClick={() => getData()}>refresh</p>
         </div>
     )
 }

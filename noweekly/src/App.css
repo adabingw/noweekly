@@ -53,3 +53,11 @@
   display: flex; 
   flex-direction: column;
 }
+
+.button:hover {
+  /* border: 1px grey solid;
+  border-radius: 12px; 
+  padding: 5px; */
+  color: #857958;
+  cursor: pointer;
+}

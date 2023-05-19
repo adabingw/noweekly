@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import requests
 import os
@@ -8,10 +8,10 @@ import datetime
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
-NOTION_KEY = "secret_ufaMUzFP7m3mdP3tqAeRCO7tgE39c0CGWzH9iRLrlE5"
-NOTION_DATABASE_ID = "6588be4dd7ee4f289be4d84a5b7845c1"
+# NOTION_KEY = "secret_ufaMUzFP7m3mdP3tqAeRCO7tgE39c0CGWzH9iRLrlE5"
+# NOTION_DATABASE_ID = "6588be4dd7ee4f289be4d84a5b7845c1"
 
-notion = Client(auth=NOTION_KEY)
+notion = Client(auth=os.environ.get("NOTION_KEY"))
 
 start = str(datetime.date.today())
 today = datetime.datetime.strptime(start, "%Y-%m-%d")
@@ -25,7 +25,7 @@ def get_database():
     print(yesterday, next_week, today)
     my_page = notion.databases.query(
         **{
-            "database_id": NOTION_DATABASE_ID, 
+            "database_id": os.environ.get("NOTION_DATABASE_ID"), 
             "filter": {
                 "and": [
                     {
@@ -48,22 +48,20 @@ def get_database():
     my_page = my_page['results']
     result = []
     for page in my_page: 
-        properties = page['properties']
-        done = properties['done']['checkbox']
-        when = properties['when']['date']['start']
-        name = properties['Name']['title'][0]['plain_text']
-        result.append([['checkbox', done], ['date', when], ['name', name]])
-        # what = properties['']
+        url = page['url']
+        page_id = url.split('/')[-1] 
         
-    # print(my_page)
-    return result 
+        properties = page['properties']
+        result.append([page_id, properties])
+        
+    return result
 
 @app.route('/properties', methods=['GET'])
 @cross_origin()
 def get_properties(): 
     print("getting properties")
     properties = notion.databases.retrieve(
-        database_id=NOTION_DATABASE_ID
+        database_id=os.environ.get("NOTION_DATABASE_ID")
     )
     
     properties = properties['properties']
@@ -73,10 +71,30 @@ def get_properties():
         name = property['name']
         type = property['type']
         id = property['id']
-        ids.append([name, type, id])
+        ids.append([name, type, id, False])
     
     print(ids)
     return ids
+
+@app.route('/finish', methods=['POST'])
+@cross_origin()
+def update_row(): 
+    print("updating database for finished task")
+    page_id = request.args.get('page_id')
+    property_name = request.args.get('property_name')
+    result = request.args.get('result')
+    response = notion.pages.update(
+        ** {
+            'page_id': page_id,
+            'properties': {
+                f'{property_name}': {
+                    'checkbox': result,
+                },
+            },
+        }
+    )
+    
+    return response
 
 if __name__ == "__main__":
     app.run(debug = True)
