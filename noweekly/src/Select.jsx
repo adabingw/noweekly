@@ -26,23 +26,14 @@ function Select(props) {
     const navigate = useNavigate()
 
     useEffect(() => {
-        // let attributes = JSON.parse(localStorage.getItem('noweekly'))
-        // if (attributes == undefined) {
-        //     console.log("getting noweekly data")
-        //     getDatabase()
-        // } else {
-        //     console.log("noweekly data: ", attributes)
-
-        //     // let result = []
-        //     // for (var attribute of attributes) {
-        //     //     console.log(attribute)
-        //     //     attribute = attribute.split(',')
-        //     //     result.push(attribute)
-        //     // }
-        //     // // attributes = attributes.split(',')
-        //     // console.log(result)
-        //     setProperties(attributes)
-        // }
+        let attributes = JSON.parse(localStorage.getItem('noweekly'))
+        if (attributes == undefined) {
+            console.log("getting noweekly data")
+            getDatabase()
+        } else {
+            console.log("noweekly data: ", attributes)
+            setProperties(attributes)
+        }
     }, [])
 
     useEffect(() => {
@@ -50,7 +41,7 @@ function Select(props) {
         console.log(properties)
         for (var i = 0; i < properties.length; i++) {
             let property = properties[i]
-            // console.log(property)
+            if (property[1] == 'checkbox') continue
             comp.push(
                 <div className="flexrow">
                     <Checkbox id={i.toString()} onChange={(e) => onCheck(e)} checked={property[3]}/>
@@ -95,6 +86,7 @@ function Select(props) {
                 return <div className="flexcol">{v}</div>
             })}
             <p className="button" onClick={() => onPropertiesFinish()}> ok! </p>
+            <p className="button" onClick={() => getDatabase()}>refresh</p>
         </div>
     )
 }

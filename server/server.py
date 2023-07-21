@@ -4,14 +4,14 @@ import requests
 import os
 from notion_client import Client
 import datetime
+import uuid
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
-# NOTION_KEY = "secret_ufaMUzFP7m3mdP3tqAeRCO7tgE39c0CGWzH9iRLrlE5"
-# NOTION_DATABASE_ID = "6588be4dd7ee4f289be4d84a5b7845c1"
-
 notion = Client(auth=os.environ.get("NOTION_KEY"))
+load_dotenv()  # take environment variables from .env.
 
 start = str(datetime.date.today())
 today = datetime.datetime.strptime(start, "%Y-%m-%d")
@@ -49,11 +49,12 @@ def get_database():
     result = []
     for page in my_page: 
         url = page['url']
-        page_id = url.split('/')[-1] 
+        page_id = url.split('/')[-1].split('-')[-1]
         
         properties = page['properties']
         result.append([page_id, properties])
-        
+    
+    print("database: \n, ", result)
     return result
 
 @app.route('/properties', methods=['GET'])
@@ -80,9 +81,10 @@ def get_properties():
 @cross_origin()
 def update_row(): 
     print("updating database for finished task")
-    page_id = request.args.get('page_id')
+    page_id = uuid.UUID(request.args.get('page_id'))
     property_name = request.args.get('property_name')
-    result = request.args.get('result')
+    print(property_name)
+    result = request.args.get('result') == 'true'
     response = notion.pages.update(
         ** {
             'page_id': page_id,

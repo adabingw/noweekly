@@ -15,15 +15,14 @@ function App() {
 
   const navigate = useNavigate()
   useEffect(() => {
-      navigate('/select')
-      // let attributes = localStorage.getItem('noweekly')
-      // if (attributes == undefined) {
-      //     console.log("no noweekly data stored")
-      //     navigate('/select')
-      // } else {
-      //     console.log("noweekly data: ", attributes)
-      //     navigate('/thing')
-      // }
+      let attributes = localStorage.getItem('noweekly')
+      if (attributes == undefined) {
+          console.log("no noweekly data stored")
+          navigate('/select')
+      } else {
+          console.log("noweekly data: ", attributes)
+          navigate('/thing')
+      }
   }, [])
 
   return (

@@ -61,3 +61,43 @@
   color: #857958;
   cursor: pointer;
 }
+
+.element {
+  margin-left: 3px;
+  margin-right: 10px;
+}
+
+.title_multi {
+  margin-left: 5px;
+  background-color: #d1cfe2;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.title_num {
+  margin-left: 5px;
+  background-color: #ebd8d0;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.title_text {
+  margin-left: 5px;
+  background-color: #b5d6d6;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.title_date{
+  margin-left: 5px;
+  background-color: #c6e2e9;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.title_title {
+  margin-left: 5px;
+  background-color: #ffd6a5;
+  border-radius: 12px;
+  padding: 5px;
+}
